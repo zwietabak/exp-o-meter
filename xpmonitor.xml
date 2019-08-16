@@ -1,0 +1,142 @@
+<Ui>
+	<Frame 	name="xpmonitor_mainFrame" parent="UIParent"
+			enableMouse="true"
+			movable="true">
+		<Anchors>
+			<Anchor point="CENTER" />
+		</Anchors>
+		<Size>
+			<AbsDimension x="160" y="30" />
+		</Size>	
+		<Backdrop 	bgFile="Interface\Tooltips\UI-Tooltip-Background"
+					edgeFile="Interface\Tooltips\UI-Tooltip-Border"
+					tile="true">
+			<EdgeSize>
+				<AbsValue val="16" />
+			</EdgeSize>
+			<TileSize>
+				<AbsValue val="16" />
+			</TileSize>
+			<BackgroundInsets>
+				<AbsInset left="4" right="3" top="4" bottom="3" />
+			</BackgroundInsets>
+			<Color r="0.2" g="0.2" b="0.7" />
+		</Backdrop>
+
+		<Frames>
+			<Button name="$parent_buttonStartMonitor">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT">
+						<Offset>
+							<AbsDimension x="20" y="-5" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-PlusButton-Up" />
+				<HighlightTexture file="Interface\Buttons\UI-PlusButton-Down" />
+				<Scripts>
+					<OnClick>
+						xpmonitor_buttonStartMonitor_onClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+
+			<Button name="$parent_buttonStopMonitor">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"
+							relativeTo="$parent_buttonStartMonitor"
+							relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="5" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-MinusButton-Up" />
+				<HighlightTexture file="Interface\Buttons\UI-MinusButton-Down" />
+				<Scripts>
+					<OnClick>
+						xpmonitor_buttonStopMonitor_onClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+
+			<Button name="$parent_buttonResetMonitor">
+				<Size>
+					<AbsDimension x="20" y="20" />
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT"
+							relativeTo="$parent_buttonStopMonitor"
+							relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="5" y="0" />
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<NormalTexture file="Interface\Buttons\UI-GroupLoot-Dice-Up" />
+				<HighlightTexture file="Interface\Buttons\UI-GroupLoot-Dice-Highlight" />
+				<Scripts>
+					<OnClick>
+						xpmonitor_buttonResetMonitor_onClick()
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString	name="$parent_expPerMinuteLabel"
+							inherits="GameFontNormal"
+							text="XP/Min: 0"
+							justifyV="TOP"
+							justifyH="RIGHT">
+					<Size>
+						<AbsDimension x="0" y="10" />
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT">
+							<Offset>
+								<AbsDimension x="10" y="-30" />
+							</Offset>
+						</Anchor>
+					</Anchors>
+					<Color r="1" g="0" b="0" a="1" />
+				</FontString>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				xpmonitor_onLoad(this)
+			</OnLoad>
+			<OnEvent>
+				xpmonitor_onEvent(this, event)
+			</OnEvent>
+			<OnUpdate>
+				xpmonitor_onUpdate(this)
+			</OnUpdate>
+			<OnMouseDown>
+				xpmonitor_onMouseDown()
+			</OnMouseDown>
+			<OnMouseUp>
+				xpmonitor_onMouseUp()
+			</OnMouseUp>
+		</Scripts>
+	</Frame>
+</Ui>
+
+
+
+
+
+
+
+
+
+
+
+
