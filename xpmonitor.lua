@@ -55,7 +55,6 @@ function xpmonitor_buttonStopMonitor_onClick()
     local playedTimeMinutes = floor((xpmonitor_playedTimeAllTime - (playedTimeHours * 3600)) / 60)
     local playedTimeSeconds = xpmonitor_playedTimeAllTime - (playedTimeHours * 3600) - (playedTimeMinutes * 60)
 
-    -- local gainedXP = UnitXP("player") - xpmonitor_startXP
     DEFAULT_CHAT_FRAME:AddMessage("You played: " .. playedTimeHours .. " h "
                                                  .. playedTimeMinutes .. " min "
                                                  .. playedTimeSeconds .. " sec")
@@ -110,11 +109,10 @@ function xpmonitor_onUpdate(self, ...)
                 self.gainedXP = diffToLevelUp + (UnitXP("player"))
             end
 
+            xpmonitor_lastMaxXP = UnitXPMax("player")
             xpmonitor_lastXP = UnitXP("player")
             xpmonitor_gainedXPAllTime = xpmonitor_gainedXPAllTime + self.gainedXP
-            -- DEFAULT_CHAT_FRAME:AddMessage("xp: " .. self.gainedXP)
-            -- xpmonitor_mainFrame_expPerSecondLabel:SetText(self.gainedXP .. " XP/s")
-            -- local xpPerSec = (xpmonitor_gainedXPAllTime / (GetTime() - xpmonitor_startTime))
+
             if not (xpmonitor_hasPausedOnce) then
                 self.xpPerMin = xpmonitor_gainedXPAllTime / ((GetTime() - xpmonitor_startTime) / 60)
             else
@@ -123,7 +121,7 @@ function xpmonitor_onUpdate(self, ...)
             xpmonitor_mainFrame_expPerMinuteLabel:SetText("XP/Min: " .. xpmonitor_roundValue(self.xpPerMin, 2))
             xpmonitor_changeSize()
         else
-            -- DEFAULT_CHAT_FRAME:AddMessage("last-xp: " .. xpmonitor_lastXP)
+
         end
         self.timeSinceLastUpdate = 0
     end
