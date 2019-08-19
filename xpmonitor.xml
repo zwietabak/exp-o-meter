@@ -31,7 +31,7 @@
 				<Anchors>
 					<Anchor point="TOPLEFT">
 						<Offset>
-							<AbsDimension x="20" y="-5" />
+							<AbsDimension x="45" y="-5" />
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -91,7 +91,7 @@
 		<Layers>
 			<Layer level="ARTWORK">
 				<FontString	name="$parent_expPerMinuteLabel"
-							inherits="GameFontNormal"
+							inherits="GameFontNormalLarge"
 							text="XP/Min: 0"
 							justifyV="TOP"
 							justifyH="RIGHT">
@@ -107,6 +107,31 @@
 					</Anchors>
 					<Color r="1" g="0" b="0" a="1" />
 				</FontString>
+
+				<Texture name="$parent_tachoTexture" file="Interface\AddOns\XPMonitor\img\tacho">
+					<Size>
+						<AbsDimension x="220" y="110" />
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="0" y="85"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
+				<Texture name="$parent_nadelTexture" file="Interface\AddOns\XPMonitor\img\nadel">
+					<Size>
+						<AbsDimension x="128" y="128" />
+					</Size>
+					<Anchors>
+						<Anchor point="CENTER">
+							<Offset>
+								<AbsDimension x="-0" y="70"/>
+							</Offset>
+						</Anchor>
+					</Anchors>
+				</Texture>
 			</Layer>
 		</Layers>
 		<Scripts>
