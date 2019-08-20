@@ -1,4 +1,4 @@
-## Interface: 11200
+## Interface: 11320
 ## Title: XP-Monitor 3000
 ## Notes: Addon to monitor your EXP
 ## Author: God himself
